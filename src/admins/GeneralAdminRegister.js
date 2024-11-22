@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { auth, createUserWithEmailAndPassword } from '../backend/firebase';  
 
 const GeneralAdminRegister = () => {
     const [email, setEmail] = useState('');
@@ -7,14 +8,26 @@ const GeneralAdminRegister = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
+
         if (password !== confirmPassword) {
             setError('Passwords do not match');
             return;
         }
 
-        alert('General Admin Registered successfully');
+        try {
+
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+            const user = userCredential.user;
+            console.log('User registered:', user);
+
+            alert('General Admin registered successfully');
+        } catch (err) {
+            console.error('Registration error:', err);
+            setError(err.message || 'An error occurred during registration');
+        }
     };
 
     return (
