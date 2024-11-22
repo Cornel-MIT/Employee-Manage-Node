@@ -1,0 +1,55 @@
+.App {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.searchH {
+  margin-top: 20px;
+}
+
+.inputSearch {
+  padding: 8px;
+  margin-right: 5px;
+}
+
+.btnSearch {
+  padding: 8px 15px;
+}
+
+.employee-list {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+}
+
+.employee-card {
+  flex: 1 0 calc(25% - 20px); 
+  margin: 10px; 
+  max-width: 200px; 
+  box-sizing: border-box; 
+}
+
+
+@media (max-width: 1200px) {
+  .employee-card {
+    flex: 1 0 calc(33.33% - 20px); 
+  }
+}
+
+@media (max-width: 800px) {
+  .employee-card {
+    flex: 1 0 calc(50% - 20px); 
+  }
+}
+
+@media (max-width: 500px) {
+  .employee-card {
+    flex: 1 0 100%; 
+    max-width: none; 
+  }
+}

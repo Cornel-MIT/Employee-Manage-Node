@@ -1,0 +1,42 @@
+.employee-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    width: 200px; 
+    height: 320px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .employee-image {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 10px; 
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    margin-top: auto; 
+  }
+  
+  .editBtn, .deleteBtn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none; 
+    border-radius: 5px; 
+    background-color: #007bff; 
+    color: white; 
+  }
+  
+  .deleteBtn {
+    background-color: #dc3545; 
+  }
+  
