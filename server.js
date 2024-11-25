@@ -193,6 +193,35 @@ app.use((req, res, next) => {
   next();
 });
 
+
+// Route to create all employees
+app.post('/api/employees', async (req, res) => {
+  try {
+    const employee = req.body;
+
+    if (!employee.name || !employee.email) {
+      return res.status(400).json({ error: 'Name and email are required' });
+    }
+
+    const docRef = await db.collection('employees').add({
+      ...employee,
+      createdAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+    
+    res.status(201).json({ 
+      id: docRef.id, 
+      ...employee 
+    });
+  } catch (error) {
+    console.error('Error adding employee:', error);
+    res.status(500).json({ 
+      error: 'Unable to add employee', 
+      details: error.message 
+    });
+  }
+});
+
+
 // Route to get all employees
 app.get('/api/employees', async (req, res) => {
   try {

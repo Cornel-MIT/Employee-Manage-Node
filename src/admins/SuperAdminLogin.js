@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './SuperAdminRegister.css'
+import './SuperAdminLogin.css'; 
 
 const SuperAdminLogin = () => {
     const [email, setEmail] = useState('');
@@ -17,12 +17,13 @@ const SuperAdminLogin = () => {
     };
 
     return (
-        <div>
+        <div className="super-admin-login">
             <h2>Super Admin Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
                     <label>Email:</label>
                     <input
+                        className="login-input"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -32,18 +33,19 @@ const SuperAdminLogin = () => {
                 <div>
                     <label>Password:</label>
                     <input
+                        className="login-input"
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
                 </div>
-                {error && <div style={{ color: 'red' }}>{error}</div>}
+                {error && <div className="error-message">{error}</div>}
                 <div>
-                    <button type="submit">Login</button>
+                    <button className="login-button" type="submit">Login</button>
                 </div>
             </form>
-            <div>
+            <div className="register-link">
                 Don't have an account? <Link to="/superadmin/register">Register</Link>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth, createUserWithEmailAndPassword } from '../backend/firebase';  
+import { auth, createUserWithEmailAndPassword } from '../backend/firebase';
+import './GeneralAdminRegister.css';  
 
 const GeneralAdminRegister = () => {
     const [email, setEmail] = useState('');
@@ -17,12 +18,9 @@ const GeneralAdminRegister = () => {
         }
 
         try {
-
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
             const user = userCredential.user;
             console.log('User registered:', user);
-
             alert('General Admin registered successfully');
         } catch (err) {
             console.error('Registration error:', err);
@@ -31,12 +29,13 @@ const GeneralAdminRegister = () => {
     };
 
     return (
-        <div>
+        <div className="general-admin-register">
             <h2>General Admin Register</h2>
             <form onSubmit={handleRegister}>
                 <div>
                     <label>Email:</label>
                     <input
+                        className="register-input"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -46,6 +45,7 @@ const GeneralAdminRegister = () => {
                 <div>
                     <label>Password:</label>
                     <input
+                        className="register-input"
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -55,18 +55,19 @@ const GeneralAdminRegister = () => {
                 <div>
                     <label>Confirm Password:</label>
                     <input
+                        className="register-input"
                         type="password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />
                 </div>
-                {error && <div style={{ color: 'red' }}>{error}</div>}
+                {error && <div className="error-message">{error}</div>}
                 <div>
-                    <button type="submit">Register</button>
+                    <button className="register-button" type="submit">Register</button>
                 </div>
             </form>
-            <div>
+            <div className="login-link">
                 Already have an account? <Link to="/generaladmin/login">Login</Link>
             </div>
         </div>

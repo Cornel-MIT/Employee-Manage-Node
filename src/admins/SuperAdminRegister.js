@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './SuperAdminRegister.css'
+import './SuperAdminRegister.css';  
 
 const SuperAdminRegister = () => {
   const [email, setEmail] = useState('');
@@ -46,53 +46,57 @@ const SuperAdminRegister = () => {
   };
 
   return (
-    <div>
+    <div className="super-admin-register">
       <h2>Super Admin Register</h2>
       <form onSubmit={handleRegister}>
-        <div>
+        <div className="input-container">
           <label>Name:</label>
           <input
+            className="input-field"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
-        <div>
+        <div className="input-container">
           <label>Email:</label>
           <input
+            className="input-field"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div>
+        <div className="input-container">
           <label>Password:</label>
           <input
+            className="input-field"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <div>
+        <div className="input-container">
           <label>Confirm Password:</label>
           <input
+            className="input-field"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </div>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
-        <div>
-          <button type="submit" disabled={loading}>
+        {error && <div className="error-message">{error}</div>}
+        <div className="button-container">
+          <button className="submit-button" type="submit" disabled={loading}>
             {loading ? 'Registering...' : 'Register'}
           </button>
         </div>
       </form>
-      <div>
+      <div className="login-link">
         Already have an account? <Link to="/superadmin/login">Login</Link>
       </div>
     </div>

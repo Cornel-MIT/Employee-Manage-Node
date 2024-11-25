@@ -1,40 +1,38 @@
-.general-admin-form {
-  max-width: 600px;
-  margin: 30px auto;
+.super-admin-login {
+  max-width: 400px;
+  margin: 50px auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.general-admin-form h2 {
+.super-admin-login h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
   font-family: 'Arial', sans-serif;
 }
 
-.general-admin-form form {
+.super-admin-login form {
   display: grid;
   grid-template-columns: 1fr;
   gap: 15px;
 }
 
-.general-admin-form form div {
+.super-admin-login form div {
   display: flex;
   flex-direction: column;
 }
 
-.general-admin-form form label {
+.super-admin-login form label {
   font-size: 14px;
   font-weight: bold;
   color: #555;
   margin-bottom: 5px;
 }
 
-.general-admin-form form input,
-.general-admin-form form select,
-.general-admin-form form button {
+.super-admin-login .login-input {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
@@ -43,51 +41,53 @@
   transition: border-color 0.3s ease;
 }
 
-.general-admin-form form input:focus,
-.general-admin-form form select:focus {
+.super-admin-login .login-input:focus {
   border-color: #007BFF;
 }
 
-.general-admin-form form button {
-  background-color: #007BFF;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.general-admin-form form button:hover {
-  background-color: #0056b3;
-}
-
-.general-admin-form form input[type="file"] {
-  padding: 5px;
-}
-
-.general-admin-form form .error-message {
+.super-admin-login .error-message {
   color: red;
   font-size: 14px;
   margin-top: 10px;
 }
 
-.general-admin-form form .error-message p {
-  margin: 0;
+.super-admin-login .login-button {
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
+.super-admin-login .login-button:hover {
+  background-color: #0056b3;
+}
+
+.super-admin-login .register-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.super-admin-login .register-link a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.super-admin-login .register-link a:hover {
+  text-decoration: underline;
+}
 
 @media (max-width: 600px) {
-  .general-admin-form {
+  .super-admin-login {
     width: 90%;
   }
 
-  .general-admin-form form {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .general-admin-form form button {
-    padding: 12px;
+  .super-admin-login .login-button {
+    padding: 14px;
     font-size: 18px;
   }
 }

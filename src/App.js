@@ -25,7 +25,7 @@ const App = () => {
         {/* Employee management route */}
         <Route path="/employee-management" element={<EmployeeManagement />} />
 
-        <Route path="/" element={<SuperAdminLogin />} />
+        <Route path="/" element={<GeneralAdminLogin />} />
       </Routes>
     </div>
   );
